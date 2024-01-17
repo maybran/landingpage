@@ -1,0 +1,19 @@
+---
+import SearchIcon from "../icons/SearchIcon.astro";
+---
+
+<div class='flex items-center justify-center'>
+    <div class="flex items-center max-w-md rounded-lg " x-data="{ search: '' }">
+        <div class="w-full">
+            <input type="search" class=" px-5 py-2 bg-transparent border rounded-md border-stone-600 text-gray-800"
+            placeholder="search" x-model="search">
+        </div>
+        <button type="submit" class="flex items-center bg-indigo-300 justify-center w-10 h-10 text-white rounded-md"
+            :class="(search.length > 0) bg-purple-500"
+            :disabled="search.length == 0">
+            <SearchIcon/>
+        </button>
+    </div>
+</div>
+
+

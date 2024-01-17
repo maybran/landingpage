@@ -1,11 +1,39 @@
 ---
-import LatestReleases from "../icons/LatestReleases.astro";
-import OldestReleases from "../icons/OldestReleases.astro";
-import AboutProject from "../icons/AboutProject.astro";
 import HeaderButton from "./HeaderButton.astro";
+import BarsIcon from "../icons/BarsIcon.astro";
+import SearchBar from "./SearchBar.astro"
 ---
 
-<header class="py-8 px-4 mx-auto max-w-xl lg:py-16 lg:px-6">
+<!-- component -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<div class="min-h-12">
+  <div class="antialiased">
+  <div class="w-full">
+    <div x-data="{ open: true }" class="flex flex-col max-w-screen-lg px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div class="flex flex-row items-center justify-between p-4">
+        <HeaderButton href="/">SPACEX</HeaderButton>
+        <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+          <BarsIcon/>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+        <HeaderButton href="#">Last Releases</HeaderButton>
+        <HeaderButton href="#">Oldest Releases</HeaderButton>
+        <HeaderButton href="#">More Projetcs</HeaderButton>
+        <SearchBar/>
+      </nav>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- <header class="py-8 px-4 mx-auto max-w-xl lg:py-16 lg:px-6">
     <div class="mx-auto text-center mb-8 lg:mb-16">
         <h2 class="mb-4 text-5xl tracking-tight font-extrabold text-white">SpaceX Launches 🚀</h2>
         <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
@@ -18,4 +46,4 @@ import HeaderButton from "./HeaderButton.astro";
         <HeaderButton class="text-white" href="/oldest"><OldestReleases/> Oldest</HeaderButton>
         <HeaderButton class="text-white" href="/about"><AboutProject/>About the project</HeaderButton>
     </nav>
-</header>
+</header>  -->

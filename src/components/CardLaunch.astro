@@ -2,12 +2,12 @@
 interface Props {
     id: string
     img: string
+    name: string
     success: boolean
-    flightNumber: number
     details: string | null
 }
 
-const { id, img, success, flightNumber, details } = Astro.props
+const { id, img, name, success, details } = Astro.props
 const successText = success ? "Success": "Failure"
 ---
 
@@ -34,7 +34,7 @@ const successText = success ? "Success": "Failure"
         >
             {successText}
         </span>
-        <h2 class="my-2 text-2xl font-bold tracking-tight text-white">Flight #{flightNumber}</h2>
+        <h2 class="my-2 text-2xl font-bold tracking-tight text-white">{name}</h2>
         <p class="mb-4 font-light text-gray-500">
             {
                 details != null && details?.length > 100
